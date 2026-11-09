@@ -1,0 +1,707 @@
+diff --git a/weather/Base.lproj/Main.storyboard b/weather/Base.lproj/Main.storyboard
+index 25a7638..5e504ef 100644
+--- a/weather/Base.lproj/Main.storyboard
++++ b/weather/Base.lproj/Main.storyboard
+@@ -1,24 +1,173 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
++<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
++    <device id="retina6_12" orientation="portrait" appearance="light"/>
+     <dependencies>
+-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
++        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
++        <capability name="System colors in document resources" minToolsVersion="11.0"/>
++        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+     </dependencies>
+     <scenes>
+         <!--View Controller-->
+         <scene sceneID="tne-QT-ifu">
+             <objects>
+-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
++                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="weather" customModuleProvider="target" sceneMemberID="viewController">
+                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
++                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
++                        <subviews>
++                            <button opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J5n-Wd-Vw7">
++                                <rect key="frame" x="147" y="790" width="100" height="44"/>
++                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
++                                <state key="normal" title="Forecast"/>
++                                <buttonConfiguration key="configuration" style="filled" title="Forecast"/>
++                                <connections>
++                                    <action selector="forecastTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6FF-Pp-CTw"/>
++                                </connections>
++                            </button>
++                            <stackView contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="wfn-YK-Px9">
++                                <rect key="frame" x="20" y="338" width="353" height="100"/>
++                                <subviews>
++                                    <stackView contentMode="scaleToFill" distribution="fillEqually" spacing="10" id="qVI-DK-ep8">
++                                        <rect key="frame" x="0.0" y="0.0" width="353" height="20"/>
++                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
++                                        <subviews>
++                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TH6-9x-aoc">
++                                                <rect key="frame" x="0.0" y="0.0" width="171" height="20"/>
++                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
++                                                <nil key="textColor"/>
++                                                <nil key="highlightedColor"/>
++                                            </label>
++                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96y-LY-EUr">
++                                                <rect key="frame" x="181" y="0.0" width="171" height="20"/>
++                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
++                                                <nil key="textColor"/>
++                                                <nil key="highlightedColor"/>
++                                            </label>
++                                        </subviews>
++                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
++                                    </stackView>
++                                    <stackView contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fMA-yW-9Mk">
++                                        <rect key="frame" x="0.0" y="80" width="353" height="20"/>
++                                        <subviews>
++                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="feels" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAq-bA-8ZA">
++                                                <rect key="frame" x="0.0" y="0.0" width="171" height="20"/>
++                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
++                                                <nil key="textColor"/>
++                                                <nil key="highlightedColor"/>
++                                            </label>
++                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="humidity" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJ3-XP-0iC">
++                                                <rect key="frame" x="181" y="0.0" width="171" height="20"/>
++                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
++                                                <nil key="textColor"/>
++                                                <nil key="highlightedColor"/>
++                                            </label>
++                                        </subviews>
++                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
++                                    </stackView>
++                                </subviews>
++                            </stackView>
++                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Hyt-QJ-PL6">
++                                <rect key="frame" x="40" y="600" width="313" height="20"/>
++                                <subviews>
++                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sg-fr-Me8">
++                                        <rect key="frame" x="0.0" y="0.0" width="136" height="20"/>
++                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
++                                        <nil key="textColor"/>
++                                        <nil key="highlightedColor"/>
++                                    </label>
++                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayF-Yi-4t9">
++                                        <rect key="frame" x="176" y="0.0" width="136" height="20"/>
++                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
++                                        <nil key="textColor"/>
++                                        <nil key="highlightedColor"/>
++                                    </label>
++                                </subviews>
++                            </stackView>
++                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5MJ-Sy-i7K">
++                                <rect key="frame" x="10" y="60" width="373" height="259"/>
++                                <subviews>
++                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7l4-3K-Y78">
++                                        <rect key="frame" x="0.0" y="0.0" width="373" height="259"/>
++                                        <subviews>
++                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4is-Uo-sbm">
++                                                <rect key="frame" x="134" y="0.0" width="104" height="27"/>
++                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
++                                                <nil key="textColor"/>
++                                                <nil key="highlightedColor"/>
++                                            </label>
++                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJm-5h-RQk">
++                                                <rect key="frame" x="0.0" y="47" width="373" height="69"/>
++                                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="60"/>
++                                                <nil key="textColor"/>
++                                                <nil key="highlightedColor"/>
++                                            </label>
++                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzY-fM-SE1">
++                                                <rect key="frame" x="116" y="137" width="140" height="21"/>
++                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
++                                                <nil key="textColor"/>
++                                                <nil key="highlightedColor"/>
++                                            </label>
++                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="80" translatesAutoresizingMaskIntoConstraints="NO" id="Mfv-eY-tfF">
++                                                <rect key="frame" x="146" y="179" width="80" height="80"/>
++                                                <color key="tintColor" systemColor="opaqueSeparatorColor"/>
++                                                <constraints>
++                                                    <constraint firstAttribute="height" constant="80" id="dhg-BI-30N"/>
++                                                    <constraint firstAttribute="width" constant="80" id="hNh-Ps-MzB"/>
++                                                </constraints>
++                                            </imageView>
++                                        </subviews>
++                                    </stackView>
++                                </subviews>
++                            </stackView>
++                        </subviews>
+                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
++                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
++                        <constraints>
++                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wfn-YK-Px9" secondAttribute="trailing" constant="20" id="86i-Xk-03S"/>
++                            <constraint firstItem="wfn-YK-Px9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="CmL-bW-Osr"/>
++                            <constraint firstItem="wfn-YK-Px9" firstAttribute="top" secondItem="5MJ-Sy-i7K" secondAttribute="bottom" constant="19" id="ct9-gd-ffg"/>
++                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5MJ-Sy-i7K" secondAttribute="trailing" constant="10" id="exT-in-6cu"/>
++                            <constraint firstItem="5MJ-Sy-i7K" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="60" id="gPx-Cv-jj3"/>
++                            <constraint firstItem="5MJ-Sy-i7K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="hD8-FZ-0Ro"/>
++                            <constraint firstItem="J5n-Wd-Vw7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="btn-cx-001"/>
++                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="J5n-Wd-Vw7" secondAttribute="bottom" constant="20" id="btn-bt-001"/>
++                            <constraint firstItem="J5n-Wd-Vw7" firstAttribute="width" constant="160" id="btn-w-001"/>
++                            <constraint firstItem="J5n-Wd-Vw7" firstAttribute="height" constant="44" id="btn-h-001"/>
++                            <constraint firstItem="Hyt-QJ-PL6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sun-cx-001"/>
++                            <constraint firstItem="Hyt-QJ-PL6" firstAttribute="top" secondItem="wfn-YK-Px9" secondAttribute="bottom" constant="40" id="sun-top-001"/>
++                            <constraint firstItem="Hyt-QJ-PL6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="sun-lead-001"/>
++                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hyt-QJ-PL6" secondAttribute="trailing" constant="40" id="sun-trail-001"/>
++                        </constraints>
+                     </view>
++                    <connections>
++                        <outlet property="cityLabel" destination="4is-Uo-sbm" id="JXI-pf-fhd"/>
++                        <outlet property="descLabel" destination="fzY-fM-SE1" id="zS3-FH-gtT"/>
++                        <outlet property="feelsLabel" destination="MAq-bA-8ZA" id="59H-pH-Yh4"/>
++                        <outlet property="humidityLabel" destination="IJ3-XP-0iC" id="iwP-fk-zA0"/>
++                        <outlet property="sunriseLabel" destination="5sg-fr-Me8" id="VzR-fJ-Pp4"/>
++                        <outlet property="sunsetLabel" destination="ayF-Yi-4t9" id="ZaF-be-6Wh"/>
++                        <outlet property="tempLabel" destination="JJm-5h-RQk" id="Aoz-TK-XdG"/>
++                        <outlet property="visibilityLabel" destination="96y-LY-EUr" id="Kpi-Zj-hJx"/>
++                        <outlet property="weatherImage" destination="Mfv-eY-tfF" id="eON-3B-YEe"/>
++                        <outlet property="windLabel" destination="TH6-9x-aoc" id="Gbg-Ya-zlL"/>
++                        <segue destination="CXP-sy-Qr7" kind="show" identifier="showForecast" id="7y4-Ux-7KK"/>
++                    </connections>
+                 </viewController>
+                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+             </objects>
++            <point key="canvasLocation" x="74" y="121"/>
+         </scene>
+-    </scenes>
+-</document>
++        <!--Forecast View Controller-->
++        <scene sceneID="ky9-nd-8gj">
++            <objects>
++                <viewController id="CXP-sy-Qr7" customClass="ForecastViewController" customModule="weather" customModuleProvider="target" sceneMemberID="viewController">
++                    <view key="view" contentMode="scaleToFill" id="j36-lQ-hCz">
++                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
++                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
++                        <subviews>
++                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CO-qw-Hen">
++                                <rect key="frame" x="20" y="60" width="353" height="30"/>
++                                <constraints>
++                                    <constraint first
+diff --git a/weather/ForecastCell.swift b/weather/ForecastCell.swift
+new file mode 100644
+index 0000000..d84a98a
+--- /dev/null
++++ b/weather/ForecastCell.swift
+@@ -0,0 +1,32 @@
++//
++//  ForecastCell.swift
++//  weather
++//
++//  Created by shiro on 22/04/26.
++//
++
++import UIKit
++import Foundation
++
++class ForecastCell: UITableViewCell {
++    @IBOutlet weak var dayLabel: UILabel!
++    @IBOutlet weak var iconView: UIImageView!
++    @IBOutlet weak var minMaxLabel: UILabel!
++    @IBOutlet weak var tempBar: UIProgressView!
++
++    func configure(day: String, min: Double, max: Double, icon: String) {
++        dayLabel.text = day
++        minMaxLabel.text = "\(Int(min))° / \(Int(max))°"
++        tempBar.progress = Float((max - min) / 40.0)
++        tempBar.progressTintColor = .systemTeal
++        loadIcon(icon)
++    }
++
++    func loadIcon(_ icon: String) {
++        guard let url = URL(string: "https://openweathermap.org/img/wn/\(icon)@2x.png") else { return }
++        Task {
++            guard let (data, _) = try? await URLSession.shared.data(from: url) else { return }
++            await MainActor.run { self.iconView.image = UIImage(data: data) }
++        }
++    }
++}
+diff --git a/weather/ForecastViewController.swift b/weather/ForecastViewController.swift
+new file mode 100644
+index 0000000..f8b1d6a
+--- /dev/null
++++ b/weather/ForecastViewController.swift
+@@ -0,0 +1,180 @@
++//
++//  ForecastViewController.swift
++//  weather
++//
++
++import UIKit
++
++// MARK: - Forecast Models
++
++struct ForecastResponse: Codable {
++    let list: [ForecastItem]
++    let city: City
++}
++
++struct ForecastItem: Codable {
++    let dt: Int
++    let main: Main
++    let weather: [Weather]
++    let dt_txt: String
++}
++
++struct City: Codable {
++    let name: String
++}
++
++// MARK: - View Controller
++
++class ForecastViewController: UIViewController {
++
++    var latitude: Double = 0
++    var longitude: Double = 0
++    var cityName: String = ""
++    var currentTemp: Double = 0
++
++    let apiKey = "b82b26ab9d5098418040d0eb36ef7256"
++
++    // MARK: - Outlets
++    @IBOutlet weak var cityLabel: UILabel!
++    @IBOutlet weak var currentTempLabel: UILabel!
++    @IBOutlet weak var segmentControl: UISegmentedControl!
++    @IBOutlet weak var tableView: UITableView!
++    @IBOutlet weak var collectionView: UICollectionView!
++
++    // MARK: - Data
++    var hourlyItems: [ForecastItem] = []
++    var dailyItems: [(day: String, min: Double, max: Double, icon: String)] = []
++
++    // MARK: - Lifecycle
++
++    override func viewDidLoad() {
++        super.viewDidLoad()
++        setGradientHeader()
++
++        cityLabel.text = cityName
++        currentTempLabel.text = "\(Int(currentTemp))°C"
++
++        tableView.delegate = self
++        tableView.dataSource = self
++        tableView.isHidden = false
++
++        collectionView.delegate = self
++        collectionView.dataSource = self
++        collectionView.isHidden = true
++
++        segmentControl.selectedSegmentIndex = 1
++
++        fetchForecast()
++    }
++
++    // MARK: - Gradient
++
++    func setGradientHeader() {
++        let gradient = CAGradientLayer()
++        gradient.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 160)
++        gradient.colors = [UIColor.systemBlue.cgColor, UIColor.systemTeal.cgColor]
++        view.layer.insertSublayer(gradient, at: 0)
++    }
++
++    // MARK: - Segment
++
++    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
++        collectionView.isHidden = sender.selectedSegmentIndex != 0
++        tableView.isHidden = sender.selectedSegmentIndex == 0
++        tableView.reloadData()
++        collectionView.reloadData()
++    }
++
++    // MARK: - Fetch
++
++    func fetchForecast() {
++        let urlStr = "https://api.openweathermap.org/data/2.5/forecast?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)&units=metric"
++        guard let url = URL(string: urlStr) else { return }
++
++        Task {
++            do {
++                let (data, _) = try await URLSession.shared.data(from: url)
++                let forecast = try JSONDecoder().decode(ForecastResponse.self, from: data)
++                await MainActor.run {
++                    self.processHourly(forecast.list)
++                    self.processDaily(forecast.list)
++                    print("✅ Daily items count:", self.dailyItems.count)
++                    print("✅ Hourly items count:", self.hourlyItems.count)
++                    self.tableView.reloadData()
++                    self.collectionView.reloadData()
++                }
++            } catch {
++                print("Forecast error:", error)
++            }
++        }
++    }
++
++    // MARK: - Process Data
++
++    func processHourly(_ items: [ForecastItem]) {
++        hourlyItems = Array(items.prefix(8))
++    }
++
++    func processDaily(_ items: [ForecastItem]) {
++        var grouped: [String: [ForecastItem]] = [:]
++
++        for item in items {
++            let key = String(item.dt_txt.prefix(10))
++            grouped[key, default: []].append(item)
++        }
++
++        dailyItems = grouped.sorted { $0.key < $1.key }.map { (key, vals) in
++            let dayFormatter = DateFormatter()
++            dayFormatter.dateFormat = "yyyy-MM-dd"
++            let date = dayFormatter.date(from: key) ?? Date()
++            let display = DateFormatter()
++            display.dateFormat = "EEE"
++            let min = vals.map { $0.main.temp }.min() ?? 0
++            let max = vals.map { $0.main.temp }.max() ?? 0
++            let icon = vals.first?.weather.first?.icon ?? "01d"
++            return (display.string(from: date), min, max, icon)
++        }
++    }
++
++    func formatHour(_ timestamp: Int) -> String {
++        let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
++        let f = DateFormatter()
++        f.dateFormat = "ha"
++        return f.string(from: date)
++    }
++}
++
++// MARK: - TableView
++
++extension ForecastViewController: UITableViewDelegate, UITableViewDataSource {
++
++    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
++        dailyItems.count
++    }
++
++    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
++        print("Loading cell at row", indexPath.row)
++        let cell = tableView.dequeueReusableCell(withIdentifier: "ForecastCell", for: indexPath) as! ForecastCell
++        let item = dailyItems[indexPath.row]
++        cell.configure(day: item.day, min: item.min, max: item.max, icon: item.icon)
++        return cell
++    }
++
++    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 60 }
++}
++
++// MARK: - CollectionView
++
++extension ForecastViewController: UICollectionViewDelegate, UICollectionViewDataSource {
++
++    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
++        hourlyItems.count
++    }
++
++    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
++        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HourlyCell", for: indexPath) as! HourlyCell
++        let item = hourlyItems[indexPath.row]
++        cell.configure(time: formatHour(item.dt), temp: item.main.temp, icon: item.weather.first?.icon ?? "01d")
++        return cell
++    }
++}
+diff --git a/weather/HourlyCell.swift b/weather/HourlyCell.swift
+new file mode 100644
+index 0000000..a5d3701
+--- /dev/null
++++ b/weather/HourlyCell.swift
+@@ -0,0 +1,25 @@
++//
++//  HourlyCell.swift
++//  weather
++//
++//  Created by shiro on 22/04/26.
++//
++
++import UIKit
++import Foundation
++
++class HourlyCell: UICollectionViewCell {
++    @IBOutlet weak var timeLabel: UILabel!
++    @IBOutlet weak var iconView: UIImageView!
++    @IBOutlet weak var tempLabel: UILabel!
++
++    func configure(time: String, temp: Double, icon: String) {
++        timeLabel.text = time
++        tempLabel.text = "\(Int(temp))°"
++        guard let url = URL(string: "https://openweathermap.org/img/wn/\(icon).png") else { return }
++        Task {
++            guard let (data, _) = try? await URLSession.shared.data(from: url) else { return }
++            await MainActor.run { self.iconView.image = UIImage(data: data) }
++        }
++    }
++}
+diff --git a/weather/Info.plist b/weather/Info.plist
+index dd3c9af..95a262e 100644
+--- a/weather/Info.plist
++++ b/weather/Info.plist
+@@ -2,24 +2,31 @@
+ <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+ <plist version="1.0">
+ <dict>
+-	<key>UIApplicationSceneManifest</key>
+-	<dict>
+-		<key>UIApplicationSupportsMultipleScenes</key>
+-		<false/>
+-		<key>UISceneConfigurations</key>
+-		<dict>
+-			<key>UIWindowSceneSessionRoleApplication</key>
+-			<array>
+-				<dict>
+-					<key>UISceneConfigurationName</key>
+-					<string>Default Configuration</string>
+-					<key>UISceneDelegateClassName</key>
+-					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+-					<key>UISceneStoryboardFile</key>
+-					<string>Main</string>
+-				</dict>
+-			</array>
+-		</dict>
+-	</dict>
++
++    <key>NSLocationWhenInUseUsageDescription</key>
++    <string>This app needs your location to show weather</string>
++
++    <key>UIApplicationSceneManifest</key>
++    <dict>
++        <key>UIApplicationSupportsMultipleScenes</key>
++        <false/>
++        <key>UISceneConfigurations</key>
++        <dict>
++            <key>UIWindowSceneSessionRoleApplication</key>
++            <array>
++                <dict>
++                    <key>UISceneConfigurationName</key>
++                    <string>Default Configuration</string>
++                    <key>UISceneDelegateClassName</key>
++                    <string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
++                    <key>UISceneStoryboardFile</key>
++                    <string>Main</string>
++                    <key>NSLocationWhenInUseUsageDescription</key>
++                    <string>We need your location to show weather</string>
++                </dict>
++            </array>
++        </dict>
++    </dict>
++
+ </dict>
+ </plist>
+diff --git a/weather/ViewController.swift b/weather/ViewController.swift
+index 4a0eca6..6ad72e4 100644
+--- a/weather/ViewController.swift
++++ b/weather/ViewController.swift
+@@ -1,19 +1,161 @@
+ //
+ //  ViewController.swift
+-//  weather
+-//
+-//  Created by shiro on 18/04/26.
+ //
+ 
+ import UIKit
++import CoreLocation
++
++class ViewController: UIViewController, CLLocationManagerDelegate {
++
++    // MARK: - Outlets
++    
++    @IBOutlet weak var cityLabel: UILabel!
++    @IBOutlet weak var tempLabel: UILabel!
++    @IBOutlet weak var descLabel: UILabel!
++    @IBOutlet weak var weatherImage: UIImageView!
++    @IBOutlet weak var feelsLabel: UILabel!
++    @IBOutlet weak var humidityLabel: UILabel!
++    @IBOutlet weak var windLabel: UILabel!
++    @IBOutlet weak var visibilityLabel: UILabel!
++    @IBOutlet weak var sunriseLabel: UILabel!
++    @IBOutlet weak var sunsetLabel: UILabel!
++
++    // MARK: - Actions
++
++    @IBAction func forecastTapped(_ sender: UIButton) {
++            performSegue(withIdentifier: "showForecast", sender: nil)
++        }
++
++    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
++        if segue.identifier == "showForecast",
++           let dest = segue.destination as? ForecastViewController {
++            dest.latitude = locationManager.location?.coordinate.latitude ?? 0
++            dest.longitude = locationManager.location?.coordinate.longitude ?? 0
++            dest.cityName = cityLabel.text ?? ""
++            dest.currentTemp = Double(
++                tempLabel.text?.replacingOccurrences(of: "°C", with: "") ?? "0"
++            ) ?? 0
++        }
++    }
++    
++    
++    func setGradientBackground() {
++        let gradient = CAGradientLayer()
++        gradient.frame = view.bounds
++        gradient.colors = [
++            UIColor.systemBlue.cgColor,
++            UIColor.systemTeal.cgColor
++        ]
++        view.layer.insertSublayer(gradient, at: 0)
++    }
++
++    // MARK: - Properties
+ 
+-class ViewController: UIViewController {
++    let apiKey = "b82b26ab9d5098418040d0eb36ef7256"
++    let locationManager = CLLocationManager()
++
++    // MARK: - Lifecycle
+ 
+     override func viewDidLoad() {
+         super.viewDidLoad()
+-        // Do any additional setup after loading the view.
++
++        setGradientBackground()
++        cityLabel.text = "Hello"
++        tempLabel.text = "--"
++        descLabel.text = "--"
++
++        locationManager.delegate = self
++        locationManager.desiredAccuracy = kCLLocationAccuracyBest
++        locationManager.requestWhenInUseAuthorization()
++        locationManager.startUpdatingLocation()
++    }
++
++    // MARK: - Location
++
++    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
++        guard let location = locations.last else { return }
++
++        let lat = location.coordinate.latitude
++        let lon = location.coordinate.longitude
++
++        locationManager.stopUpdatingLocation()
++        fetchWeather(lat: lat, lon: lon)
++    }
++
++    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
++        print("Location Error:", error.localizedDescription)
++    }
++
++    // MARK: - Fetch Weather
++
++    func fetchWeather(lat: Double, lon: Double) {
++        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=\(apiKey)&units=metric"
++
++        guard let url = URL(string: urlString) else { return }
++
++        Task {
++            do {
++                let (data, _) = try await URLSession.shared.data(from: url)
++                let weatherData = try JSONDecoder().decode(WeatherResponse.self, from: data)
++                await MainActor.run { self.updateUI(data: weatherData) }
++            } catch {
++                print("Error:", error)
++            }
++        }
++    }
++
++    // MARK: - Update UI
++
++    func updateUI(data: WeatherResponse) {
++        cityLabel.text = data.name
++        tempLabel.text = String(format: "%.1f°C", data.main.temp)
++        descLabel.text = data.weather.first?.description.capitalized
++
++        feelsLabel.text = "Feels: \(data.main.feels_like)°C"
++        humidityLabel.text = "Humidity: \(data.main.humidity)%"
++        windLabel.text = "Wind: \(data.wind.speed) m/s"
++        visibilityLabel.text = "Visibility: \(data.visibility / 1000) km"
++        sunriseLabel.text = "Sunrise: \(formatTime(data.sys.sunrise))"
++        sunsetLabel.text = "Sunset: \(formatTime(data.sys.sunset))"
++
++        if let icon = data.weather.first?.icon {
++            loadImage(urlString: "https://openweathermap.org/img/wn/\(icon)@2x.png")
++        }
++
++        animateTemp()   // ← called here, inside updateUI
+     }
+ 
++    // MARK: - Animate Temp
++
++    func animateTemp() {
++        tempLabel.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
++        UIView.animate(withDuration: 0.4, delay: 0,
++                       usingSpringWithDamping: 0.5,
++                       initialSpringVelocity: 0.8) {
++            self.tempLabel.transform = .identity
++        }
++    }
+ 
+-}
++    // MARK: - Helpers
++
++    func formatTime(_ timestamp: Int) -> String {
++        let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
++        let formatter = DateFormatter()
++        formatter.timeStyle = .short
++        return formatter.string(from: date)
++    }
++
++    func loadImage(urlString: String) {
++        guard let url = URL(string: urlString) else { return }
++        Task {
++            do {
++                let (data, _) = try await URLSession.shared.data(from: url)
++                await MainActor.run { self.weatherImage.image = UIImage(data: data) }
++            } catch {
++                print("Image Load Error:", error)
++            }
++        }
++    }
++    
+ 
++} // ← single closing brace for the entire class
+diff --git a/weather/WeatherResponse.swift b/weather/WeatherResponse.swift
+new file mode 100644
+index 0000000..88a409b
+--- /dev/null
++++ b/weather/WeatherResponse.swift
+@@ -0,0 +1,34 @@
++//
++//  WeatherResponse.swift
++//
++
++import Foundation
++
++struct WeatherResponse: Codable, Sendable {
++    let name: String
++    let main: Main
++    let weather: [Weather]
++    let wind: Wind
++    let visibility: Int
++    let sys: Sys
++}
++
++struct Main: Codable, Sendable {
++    let temp: Double
++    let feels_like: Double
++    let humidity: Int
++}
++
++struct Weather: Codable, Sendable {
++    let description: String
++    let icon: String
++}
++
++struct Wind: Codable, Sendable {
++    let speed: Double
++}
++
++struct Sys: Codable, Sendable {
++    let sunrise: Int
++    let sunset: Int
++}
